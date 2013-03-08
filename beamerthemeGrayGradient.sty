@@ -1,0 +1,55 @@
+% beamerthemeGrayGradient.sty
+
+\newif\ifbeamer@footauthor
+\newif\ifbeamer@foottitle
+\newif\ifbeamer@footnumber
+\DeclareOptionBeamer{footauthor}{\beamer@footauthortrue}
+\DeclareOptionBeamer{foottitle}{\beamer@foottitletrue}
+\DeclareOptionBeamer{footnumber}{\beamer@footnumbertrue}
+\ProcessOptionsBeamer
+
+\setbeamersize{text margin left=1zw, text margin right=.75zw}
+
+% fonts
+\setbeamerfont{title}{size=\LARGE}
+\setbeamerfont{subtitle}{size=\LARGE}
+\setbeamerfont{author}{size=\Large}
+\setbeamerfont{institute}{size=\normalsize}
+\setbeamerfont{frametitle}{size=\LARGE}
+
+% colors
+\definecolor{sidecolor}{gray}{0.9}
+\setbeamercolor{title}{fg=black}
+\setbeamercolor{normal text}{fg=black}
+\setbeamercolor{frametitle}{fg=black}
+\setbeamercolor{structure}{fg=black}
+\setbeamercolor{math text}{fg=black}
+\setbeamercolor{separation line}{fg=red}
+
+% templates
+\setbeamertemplate{items}[circle]
+\setbeamertemplate{enumerate items}[default]
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{background canvas}[vertical shading][top=sidecolor, middle=white, bottom=sidecolor, midpoint=0.5]
+\setbeamertemplate{headline}[default]
+\setbeamertemplate{frametitle}{
+  \vspace{-.5cm}
+  \begin{center}
+    \insertframetitle ~{\normalsize \insertframesubtitle}\par
+  \end{center}
+  \vspace{-1cm}
+}
+\setbeamertemplate{block begin}{
+  \underline{\insertblocktitle}\par
+}
+\setbeamertemplate{block end}{}
+\setbeamertemplate{block alerted begin}{
+  {\color{red}\underline{\insertblocktitle}}\par
+  \setbeamercolor{item}{fg=white}
+}
+\setbeamertemplate{block alerted end}{}
+\setbeamertemplate{block example begin}{
+  {\color{examplegreen}\underline{\insertblocktitle}}\par
+  \setbeamercolor{item}{fg=white}
+}
+\setbeamertemplate{block example end}{}
